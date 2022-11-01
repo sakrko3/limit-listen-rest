@@ -10,6 +10,9 @@ dj-database-url = "*"
 psycopg2-binary = "*"
 whitenoise = {extras = ["brotli"], version = "*"}
 gunicorn = "*"
+djangorestframework = "*"
+djoser = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 black = "*"
