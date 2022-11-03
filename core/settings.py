@@ -34,12 +34,14 @@ INSTALLED_APPS = [
     "products.apps.ProductsConfig",
     "rest_framework",
     "djoser",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -178,3 +180,8 @@ DJOSER = {
 # Configure custom user model
 
 AUTH_USER_MODEL = "users.User"
+
+# Cors
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = config("CORS_ORIGIN_WHITELIST", cast=Csv(post_process=tuple))
